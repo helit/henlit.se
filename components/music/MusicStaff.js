@@ -13,16 +13,16 @@ const Staff = styled.div`
 `;
 
 const Line = styled.div`
-  height: 1px;
+  height: 2px;
   margin-bottom: 14px;
   background-color: #000;
 `;
 
 const Gclef = styled.img`
   position: absolute;
-  top: -25px;
+  top: -22px;
   left: 0;
-  height: 116px;
+  height: 117px;
 `;
 
 const WholeNote = styled.img`
@@ -36,20 +36,20 @@ const WholeNote = styled.img`
 `;
 
 const noteSteps = {
-  'B3': 75,
-  'C4': 68,
-  'D4': 61,
-  'E4': 54,
-  'F4': 46,
-  'G4': 39,
-  'A4': 31,
-  'B4': 24,
-  'C5': 16,
-  'D5': 9,
-  'E5': 1,
-  'F5': -6,
-  'G5': -14,
-  'A5': -21
+  'B3': 73,
+  'C4': 66,
+  'D4': 58,
+  'E4': 50,
+  'F4': 42,
+  'G4': 34,
+  'A4': 26,
+  'B4': 18,
+  'C5': 10,
+  'D5': 2,
+  'E5': -6,
+  'F5': -14,
+  'G5': -22,
+  'A5': -30
 };
 
 export default class MusicStaff extends React.Component {

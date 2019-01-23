@@ -1262,7 +1262,7 @@
         },
         "relativeKey": "D Major",
         "notes": ["B", "C♯", "D", "E", "F♯", "G", "A"],
-        "octaves": ["B4", "C5", "D5", "E5", "F5", "G5", "A5"],
+        "octaves": ["B3", "C4", "D4", "E4", "F4", "G4", "A4"],
         "chords": [
           {
             "chord": "Bm",
