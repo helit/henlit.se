@@ -8,6 +8,7 @@
         },
         "relativeKey": "A Minor",
         "notes": ["C", "D", "E", "F", "G", "A", "B"],
+        "sharps": 0,
         "octaves": ["C4", "D4", "E4", "F4", "G4", "A4", "B4"],
         "chords": [
           {
@@ -80,6 +81,7 @@
         },
         "relativeKey": "E Minor",
         "notes": ["G", "A", "B", "C", "D", "E", "F♯"],
+        "sharps": 1,
         "octaves": ["G4", "A4", "B4", "C5", "D5", "E5", "F5"],
         "chords": [
           {
@@ -152,6 +154,7 @@
         },
         "relativeKey": "B Minor",
         "notes": ["D", "E", "F♯", "G", "A", "B", "C♯"],
+        "sharps": 2,
         "octaves": ["D4", "E4", "F4", "G4", "A4", "B4", "C5"],
         "chords": [
           {
@@ -224,6 +227,7 @@
         },
         "relativeKey": "F♯ Minor",
         "notes": ["A", "B", "C♯", "D", "E", "F♯", "G♯"],
+        "sharps": 3,
         "octaves": ["A4", "B4", "C5", "D5", "E5", "F5", "G5"],
         "chords": [
           {
@@ -296,6 +300,7 @@
         },
         "relativeKey": "C♯ Minor",
         "notes": ["E", "F♯", "G♯", "A", "B", "C♯", "D♯"],
+        "sharps": 4,
         "octaves": ["E4", "F4", "G4", "A4", "B4", "C5", "D5"],
         "chords": [
           {
@@ -372,6 +377,7 @@
         },
         "relativeKey": "G♯ Minor",
         "notes": ["B", "C♯", "D♯", "E", "F♯", "G♯", "A♯"],
+        "sharps": 5,
         "octaves": ["B3", "C4", "D4", "E4", "F4", "G4", "A4"],
         "chords": [
           {
@@ -448,6 +454,7 @@
         },
         "relativeKey": "A♭ Minor",
         "notes": ["C♭", "D♭", "E♭", "F♭", "G♭", "A♭", "B♭"],
+        "sharps": 0,
         "octaves": ["C4", "D4", "E4", "F4", "G4", "A4", "B4"],
         "chords": [
           {
@@ -524,6 +531,7 @@
         },
         "relativeKey": "D♯ Minor",
         "notes": ["F♯", "G♯", "A♯", "B", "C♯", "D♯", "E♯"],
+        "sharps": 6,
         "octaves": ["F4", "G4", "A4", "B4", "C5", "D5", "E5"],
         "chords": [
           {
@@ -600,6 +608,7 @@
         },
         "relativeKey": "E♭ Minor",
         "notes": ["G♭", "A♭", "B♭", "C♭", "D♭", "E♭", "F"],
+        "sharps": 0,
         "octaves": ["G4", "A4", "B4", "C5", "D5", "E5", "F5"],
         "chords": [
           {
@@ -676,6 +685,7 @@
         },
         "relativeKey": "A♯ Minor",
         "notes": ["C♯", "D♯", "E♯", "F♯", "G♯", "A♯", "B♯"],
+        "sharps": 7,
         "octaves": ["C4", "D4", "E4", "F4", "G4", "A4", "B4"],
         "chords": [
           {
@@ -752,6 +762,7 @@
         },
         "relativeKey": "B♭ Minor",
         "notes": ["D♭", "E♭", "F", "G♭", "A♭", "B♭", "C"],
+        "sharps": 0,
         "octaves": ["D4", "E4", "F4", "G4", "A4", "B4", "C5"],
         "chords": [
           {
@@ -824,6 +835,7 @@
         },
         "relativeKey": "F Minor",
         "notes": ["A♭", "B♭", "C", "D♭", "E♭", "F", "G"],
+        "sharps": 0,
         "octaves": ["A4", "B4", "C5", "D5", "E5", "F5", "G5"],
         "chords": [
           {
@@ -896,6 +908,7 @@
         },
         "relativeKey": "C Minor",
         "notes": ["E♭", "F", "G", "A♭", "B♭", "C", "D"],
+        "sharps": 0,
         "octaves": ["E4", "F4", "G4", "A4", "B4", "C5", "D5"],
         "chords": [
           {
@@ -968,6 +981,7 @@
         },
         "relativeKey": "G Minor",
         "notes": ["B♭", "C", "D", "E♭", "F", "G", "A"],
+        "sharps": 0,
         "octaves": ["B3", "C4", "D4", "E4", "F4", "G4", "A4"],
         "chords": [
           {
@@ -1040,6 +1054,7 @@
         },
         "relativeKey": "D Minor",
         "notes": ["F", "G", "A", "B♭", "C", "D", "E"],
+        "sharps": 0,
         "octaves": ["F4", "G4", "A4", "B4", "C5", "D5", "E5"],
         "chords": [
           {
@@ -1114,6 +1129,7 @@
         },
         "relativeKey": "C Major",
         "notes": ["A", "B", "C", "D", "E", "F", "G"],
+        "sharps": 0,
         "octaves": ["A4", "B4", "C5", "D5", "E5", "F5", "G5"],
         "chords": [
           {
@@ -1188,6 +1204,7 @@
         },
         "relativeKey": "G Major",
         "notes": ["E", "F♯", "G", "A", "B", "C", "D"],
+        "sharps": 1,
         "octaves": ["E4", "F4", "G4", "A4", "B4", "C5", "D5"],
         "chords": [
           {
@@ -1262,6 +1279,7 @@
         },
         "relativeKey": "D Major",
         "notes": ["B", "C♯", "D", "E", "F♯", "G", "A"],
+        "sharps": 2,
         "octaves": ["B3", "C4", "D4", "E4", "F4", "G4", "A4"],
         "chords": [
           {
@@ -1336,6 +1354,7 @@
         },
         "relativeKey": "A Major",
         "notes": ["F♯", "G♯", "A", "B", "C♯", "D", "E"],
+        "sharps": 3,
         "octaves": ["F4", "G4", "A4", "B4", "C5", "D5", "E5"],
         "chords": [
           {
@@ -1410,6 +1429,7 @@
         },
         "relativeKey": "E Major",
         "notes": ["C♯", "D♯", "E", "F♯", "G♯", "A", "B"],
+        "sharps": 4,
         "octaves": ["C4", "D4", "E4", "F4", "G4", "A4", "B4"],
         "chords": [
           {
@@ -1488,6 +1508,7 @@
           "name": "A♭ Minor"
         },
         "notes": ["G♯", "A♯", "B", "C♯", "D♯", "E", "F♯"],
+        "sharps": 5,
         "octaves": ["G4", "A4", "B4", "C5", "D5", "E5", "F5"],
         "chords": [
           {
@@ -1566,6 +1587,7 @@
           "name": "G♯ Minor"
         },
         "notes": ["A♭", "B♭", "C♭", "D♭", "E♭", "F♭", "G♭"],
+        "sharps": 0,
         "octaves": ["A4", "B4", "C5", "D5", "E5", "F5", "G5"],
         "chords": [
           {
@@ -1644,6 +1666,7 @@
           "name": "E♭ Minor"
         },
         "notes": ["D♯", "E♯", "F♯", "G♯", "A♯", "B", "C♯"],
+        "sharps": 6,
         "octaves": ["D4", "E4", "F4", "G4", "A4", "B4", "C5"],
         "chords": [
           {
@@ -1718,6 +1741,7 @@
         },
         "relativeKey": "G♭ Major",
         "notes": ["E♭", "F", "G♭", "A♭", "B♭", "C♭", "D♭"],
+        "sharps": 0,
         "octaves": ["E4", "F4", "G4", "A4", "B4", "C5", "D5"],
         "chords": [
           {
@@ -1796,6 +1820,7 @@
           "name": "B♭ Minor"
         },
         "notes": ["A♯", "B♯", "C♯", "D♯", "E♯", "F♯", "G♯"],
+        "sharps": 7,
         "octaves": ["A4", "B4", "C5", "D5", "E5", "F5", "G5"],
         "chords": [
           {
@@ -1874,6 +1899,7 @@
           "name": "A♯ Minor"
         },
         "notes": ["B♭", "C", "D♭", "E♭", "F", "G♭", "A♭"],
+        "sharps": 0,
         "octaves": ["B3", "C4", "D4", "E4", "F4", "G4", "A4"],
         "chords": [
           {
@@ -1948,6 +1974,7 @@
         },
         "relativeKey": "A♭ Major",
         "notes": ["F", "G", "A♭", "B♭", "C", "D♭", "E♭"],
+        "sharps": 0,
         "octaves": ["F4", "G4", "A4", "B4", "C5", "D5", "E5"],
         "chords": [
           {
@@ -2022,6 +2049,7 @@
         },
         "relativeKey": "E♭ Major",
         "notes": ["C", "D", "E♭", "F", "G", "A♭", "B♭"],
+        "sharps": 0,
         "octaves": ["C4", "D4", "E4", "F4", "G4", "A4", "B4"],
         "chords": [
           {
@@ -2096,6 +2124,7 @@
         },
         "relativeKey": "B♭ Major",
         "notes": ["G", "A", "B♭", "C", "D", "E♭", "F"],
+        "sharps": 0,
         "octaves": ["G4", "A4", "B4", "C5", "D5", "E5", "F5"],
         "chords": [
           {
@@ -2170,6 +2199,7 @@
         },
         "relativeKey": "F Major",
         "notes": ["D", "E", "F", "G", "A", "B♭", "C"],
+        "sharps": 0,
         "octaves": ["D4", "E4", "F4", "G4", "A4", "B4", "C5"],
         "chords": [
           {
