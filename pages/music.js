@@ -9,6 +9,7 @@ export default class Music extends React.Component {
     super(props);
 
     this.state = {
+      title: 'Music',
       currentKey: [],
       key: null,
       minor: false
@@ -37,10 +38,10 @@ export default class Music extends React.Component {
   };
 
   render() {
-    const { currentKey } = this.state;
+    const { title, currentKey } = this.state;
 
     return (
-      <Layout>
+      <Layout title={title}>
         <Wrapper>
           <SideMenu>
             <Filters

@@ -1,11 +1,13 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { Colors } from "../components/Styles"
 
 const resetStyles = `
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #fafafa;
+    color: ${Colors.darkGrey};
   }
 
   h1, h2, h3, h4, h5, h6 {

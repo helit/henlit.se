@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Colors } from "../components/Styles";
 
 const Wrapper = styled.div`
+  min-height: 64px;
   color: ${Colors.white};
   background-color: ${Colors.blue};
 `;

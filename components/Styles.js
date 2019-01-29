@@ -13,7 +13,13 @@ export const Colors = {
   orange: "#ff9800",
   brown: "#795548",
   grey: "#9e9e9e",
-  blueGrey: "#607d8b"
+  blueGrey: "#607d8b",
+  darkGrey: "#444"
+};
+
+export const Styles = {
+  boxShadow: "0px 1px 3px 0px rgba(0, 0, 0, 0.2),\
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)",
 };
 
 /* Layout */
@@ -26,8 +32,7 @@ export const Content = styled.div`
   background-color: ${Colors.white};
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: ${Styles.boxShadow};
 `;
 
 export const SideMenu = styled.div`
@@ -36,8 +41,7 @@ export const SideMenu = styled.div`
   width: 35%;
   margin-right: 40px;
   border-radius: 4px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: ${Styles.boxShadow};
 `;
 
 /* Elements */
@@ -46,8 +50,10 @@ export const ListItem = styled.li`
     (props.direction === "row" && "inline-block") ||
     !props.direction ||
     (props.direction === "column" && "block")};
-  ${props =>
-    props.direction === "row" ? "margin-right: 30px;" : "margin-bottom: 10px;"}
+  ${props => props.direction === "row"
+    ? "margin-right: 30px;"
+    : "margin-bottom: 10px;"}
+  ${props => props.center && "text-align: center;"}
 `;
 
 export const Table = styled.table`

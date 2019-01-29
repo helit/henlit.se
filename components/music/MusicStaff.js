@@ -5,6 +5,7 @@ import wholeNoteLedgerTop from "../../assets/img/whole-note_ledger-top.png";
 import wholeNoteLedgerMiddle from "../../assets/img/whole-note_ledger-middle.png";
 import sharpImg from "../../assets/img/sharp.png";
 import flatImg from "../../assets/img/flat.png";
+import { Colors } from "../Styles";
 
 const Wrapper = styled.div`
   position: relative;
@@ -23,8 +24,8 @@ const FinalBarline = styled.div`
   right: 0;
   height: 100%;
   width: 3px;
-  border-right: 3px solid #000;
-  border-left: 2px solid #000;
+  border-right: 3px solid ${Colors.black};
+  border-left: 2px solid ${Colors.black};
 `;
 
 const ReverseFinalBarline = styled.div`
@@ -33,14 +34,14 @@ const ReverseFinalBarline = styled.div`
   left: 0;
   height: 100%;
   width: 3px;
-  border-right: 2px solid #000;
-  border-left: 3px solid #000;
+  border-right: 2px solid ${Colors.black};
+  border-left: 3px solid ${Colors.black};
 `;
 
 const Line = styled.div`
   height: 2px;
   margin-bottom: 14px;
-  background-color: #000;
+  background-color: ${Colors.black};
 `;
 
 const Gclef = styled.img`
