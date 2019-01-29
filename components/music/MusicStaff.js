@@ -173,7 +173,6 @@ export default class MusicStaff extends React.Component {
           {this.RenderSignature(sharps, flats)}
         </Signature>
         <Staff>
-          <ReverseFinalBarline />
           <Line />
           <Line />
           <Line />
