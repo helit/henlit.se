@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import gClef from "../../assets/img/g-clef.png";
 import wholeNote from "../../assets/img/whole-note.png";
-import wholeNoteLineTop from "../../assets/img/whole-note_line-top.png";
-import wholeNoteLineMiddle from "../../assets/img/whole-note_line-middle.png";
-import sharp from "../../assets/img/sharp.png";
-import flat from "../../assets/img/flat.png";
+import wholeNoteLedgerTop from "../../assets/img/whole-note_ledger-top.png";
+import wholeNoteLedgerMiddle from "../../assets/img/whole-note_ledger-middle.png";
+import sharpImg from "../../assets/img/sharp.png";
+import flatImg from "../../assets/img/flat.png";
 
 const Wrapper = styled.div`
   position: relative;
@@ -13,7 +13,28 @@ const Wrapper = styled.div`
 `;
 
 const Staff = styled.div`
+  position: relative;
   width: 600px;
+`;
+
+const FinalBarline = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 3px;
+  border-right: 3px solid #000;
+  border-left: 2px solid #000;
+`;
+
+const ReverseFinalBarline = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  border-right: 2px solid #000;
+  border-left: 3px solid #000;
 `;
 
 const Line = styled.div`
@@ -66,6 +87,16 @@ const sharpSteps = [
   16
 ];
 
+const flatSteps = [
+  9,
+  -16,
+  16,
+  -7,
+  25,
+  0,
+  32
+];
+
 const Signature = styled.div`
   position: absolute;
   top: 0;
@@ -81,35 +112,56 @@ const Sharp = styled.img`
   height: 34px;
 `;
 
+const Flat = styled.img`
+  position: absolute;
+  top: ${props => props.position}px;
+  left: ${props => (13 * props.index)}px;
+  height: 34px;
+`;
+
 export default class MusicStaff extends React.Component {
 
-  RenderSharps(sharpCount) {
-    let sharps = [];
-
+  RenderSignature(sharpCount, flatCount) {
     if (sharpCount > 0) {
+      let sharps = [];
+
       for (let i = 0; i < sharpCount; i++) {
         sharps.push(
-          <Sharp src={sharp} position={sharpSteps[i]} index={i}/>
+          <Sharp src={sharpImg} position={sharpSteps[i]} index={i} />
         );
       }
+
+      return sharps;
     }
 
-    return sharps;
+    if (flatCount > 0) {
+      let flats = [];
+
+      for (let i = 0; i < flatCount; i++) {
+        flats.push(
+          <Flat src={flatImg} position={flatSteps[i]} index={i} />
+        );
+      }
+
+      return flats;
+    }
+
+    return;
   }
 
   render() {
-    const { octaves, sharps } = this.props;
+    const { octaves, sharps, flats } = this.props;
     return (
       <Wrapper>
         {octaves.map((octave, index) => {
           let img = wholeNote;
           switch (octave) {
             case 'B3':
-              img = wholeNoteLineTop;
+              img = wholeNoteLedgerTop;
               break;
             case 'C4':
             case 'A5':
-              img = wholeNoteLineMiddle;
+              img = wholeNoteLedgerMiddle;
               break;
           }
           return (
@@ -118,14 +170,16 @@ export default class MusicStaff extends React.Component {
         })}
         <Gclef src={gClef} />
         <Signature>
-          {this.RenderSharps(sharps)}
+          {this.RenderSignature(sharps, flats)}
         </Signature>
         <Staff>
+          <ReverseFinalBarline />
           <Line />
           <Line />
           <Line />
           <Line />
           <Line />
+          <FinalBarline />
         </Staff>
       </Wrapper>
     );

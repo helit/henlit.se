@@ -35,7 +35,10 @@ export default class MusicTable extends React.Component {
               </ListItem>
             ))}
           </ul>
-          <MusicStaff octaves={currentKey.octaves} sharps={currentKey.sharps}/>
+          <MusicStaff
+            octaves={currentKey.octaves}
+            sharps={currentKey.sharps}
+            flats={currentKey.flats}/>
         </Section>
         <Section>
           <h4>Chords</h4>
