@@ -49,7 +49,7 @@ const FormSection = styled.div`
 
 export default class Filters extends React.Component {
   state = {
-    selectedOption: null,
+    selectedOption: optionsMajor[0],
     isMinor: false,
   };
 
