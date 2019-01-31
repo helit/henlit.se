@@ -26,7 +26,7 @@ export const FlatSteps = [-3, -27, 5, -19, 13, -11, 21];
 
 export const Staff = styled.div`
   position: relative;
-  width: 495px;
+  width: ${props => props.width}px;
 `;
 
 export const FinalBarline = styled.div`
@@ -75,7 +75,10 @@ export const QuarterNote = styled.span`
 export const NoteWrapper = styled.div`
   position: relative;
   top: ${props => props.octave && `${noteSteps[props.octave]}px`};
-  left: ${props => (props.index > 0 ? `${170 + 45 * props.index}px` : "170px")};
+  left: ${props =>
+    props.index > 0
+      ? `${props.margin + 45 * props.index}px`
+      : `${props.margin}px`};
 `;
 
 export const LedgerLine = styled.div`

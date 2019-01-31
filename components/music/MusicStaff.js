@@ -57,8 +57,17 @@ export default class MusicStaff extends React.Component {
     return;
   }
 
-  RenderNotes(octaves) {
+  RenderNotes(octaves, sharps, flats) {
     let notes = [];
+    let margin = 65;
+
+    if (sharps > 0) {
+      margin += sharps * 15;
+    }
+
+    if (flats > 0) {
+      margin += flats * 15;
+    }
 
     for (let i = 0; i < octaves.length; i++) {
       let flipped = false;
@@ -101,7 +110,7 @@ export default class MusicStaff extends React.Component {
       }
 
       notes.push(
-        <NoteWrapper key={i} octave={octaves[i]} index={i}>
+        <NoteWrapper key={i} octave={octaves[i]} index={i} margin={margin}>
           {hasLedger && <LedgerLine position={ledgerPos} />}
           <QuarterNote flipped={flipped} />
         </NoteWrapper>
@@ -111,14 +120,28 @@ export default class MusicStaff extends React.Component {
     return notes;
   }
 
+  StaffWidth(sharps, flats) {
+    let staffWidth = 390;
+
+    if (sharps > 0) {
+      staffWidth += sharps * 15;
+    }
+
+    if (flats > 0) {
+      staffWidth += flats * 15;
+    }
+
+    return staffWidth;
+  }
+
   render() {
     const { octaves, sharps, flats } = this.props;
     return (
       <Wrapper>
-        {this.RenderNotes(octaves)}
+        {this.RenderNotes(octaves, sharps, flats)}
         <GClef />
         <Signature>{this.RenderSignature(sharps, flats)}</Signature>
-        <Staff>
+        <Staff width={this.StaffWidth(sharps, flats)}>
           {this.RenderStaffLines(5)}
           <FinalBarline />
         </Staff>
