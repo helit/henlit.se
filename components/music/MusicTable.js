@@ -1,5 +1,6 @@
 import { Table, Td, Th, ListItem } from "../Styles";
-import MusicStaff from "../music/MusicStaff"
+import MusicStaff from "../music/MusicStaff";
+import CircleOfFifths from "../music/CircleOfFifths";
 import styled from "styled-components";
 
 const Section = styled.div`
@@ -7,12 +8,8 @@ const Section = styled.div`
 `;
 
 export default class MusicTable extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { currentKey } = this.props;
+    const { currentKey, keyData } = this.props;
     return (
       <div>
         <h3>{currentKey.meta.name + " " + currentKey.meta.quality}</h3>
@@ -38,7 +35,8 @@ export default class MusicTable extends React.Component {
           <MusicStaff
             octaves={currentKey.octaves}
             sharps={currentKey.sharps}
-            flats={currentKey.flats}/>
+            flats={currentKey.flats}
+          />
         </Section>
         <Section>
           <h4>Chords</h4>
@@ -69,7 +67,9 @@ export default class MusicTable extends React.Component {
               <tr>
                 <Td>Seventh</Td>
                 {currentKey.chords.map((chord, index) => (
-                  <Td key={index.toString()}>{`${chord.triad}-${chord.seventh}`}</Td>
+                  <Td key={index.toString()}>{`${chord.triad}-${
+                    chord.seventh
+                  }`}</Td>
                 ))}
               </tr>
             </tbody>
@@ -82,6 +82,10 @@ export default class MusicTable extends React.Component {
               <ListItem key={index.toString()}>{chordProgression}</ListItem>
             ))}
           </ul>
+        </Section>
+        <Section>
+          <h4>Circle of Fifths</h4>
+          <CircleOfFifths keys={keyData.circleOfFifths.keys} />
         </Section>
       </div>
     );

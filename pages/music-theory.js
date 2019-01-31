@@ -18,13 +18,12 @@ export default class MusicTheory extends React.Component {
     this.msg = '';
   }
 
-  handleSelection = selection => {
-    const isMinor = this.state.minor;
+  handleSelection = (selection, isMinor) => {
     const key = selection.value;
     const currentKey = keyData.keys[isMinor ? 'minor' : 'major'][key];
 
     if (!currentKey) {
-      this.msg = 'No data found';
+      this.msg = 'This key does not exist.';
     } else if (currentKey == []) {
       this.msg = 'Select a key';
     }
@@ -41,7 +40,6 @@ export default class MusicTheory extends React.Component {
 
   render() {
     const { title, currentKey } = this.state;
-    console.log(currentKey);
 
     return (
       <Layout title={title}>
@@ -54,7 +52,7 @@ export default class MusicTheory extends React.Component {
           </SideMenu>
           {currentKey && currentKey.length !== 0 ? (
             <Content>
-              <MusicTable currentKey={currentKey} />
+              <MusicTable currentKey={currentKey} keyData={keyData} />
             </Content>
           ) : (
             <Content>

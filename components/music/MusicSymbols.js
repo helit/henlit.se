@@ -20,29 +20,13 @@ const noteSteps = {
   A5: -36
 };
 
-export const SharpSteps = [
-  -21,
-  3,
-  -29,
-  -5,
-  19,
-  -13,
-  11
-];
+export const SharpSteps = [-21, 3, -29, -5, 19, -13, 11];
 
-export const FlatSteps = [
-  -3,
-  -27,
-  5,
-  -19,
-  13,
-  -11,
-  21
-];
+export const FlatSteps = [-3, -27, 5, -19, 13, -11, 21];
 
 export const Staff = styled.div`
   position: relative;
-  width: 600px;
+  width: 495px;
 `;
 
 export const FinalBarline = styled.div`
@@ -51,14 +35,14 @@ export const FinalBarline = styled.div`
   right: 0;
   height: 100%;
   width: 3px;
-  border-right: 3px solid ${Colors.black};
-  border-left: 2px solid ${Colors.black};
+  border-right: 3px solid ${Colors.darkGrey};
+  border-left: 2px solid ${Colors.darkGrey};
 `;
 
 export const Line = styled.div`
   height: 2px;
   margin-bottom: 14px;
-  background-color: ${Colors.black};
+  background-color: ${Colors.darkGrey};
 `;
 
 export const GClef = styled.span`
@@ -81,7 +65,7 @@ export const Signature = styled.div`
 
 export const QuarterNote = styled.span`
   position: absolute;
-  ${props => props.flipped && "transform: scaleY(-1);"}
+  ${props => props.flipped && "transform: rotateX(180deg) rotateY(180deg);"}
   &:before {
     content: "\\1D15F";
     font-size: 60px;
@@ -91,15 +75,15 @@ export const QuarterNote = styled.span`
 export const NoteWrapper = styled.div`
   position: relative;
   top: ${props => props.octave && `${noteSteps[props.octave]}px`};
-  left: ${props => (props.index > 0 ? `${155 + 55 * props.index}px` : "155px")};
+  left: ${props => (props.index > 0 ? `${170 + 45 * props.index}px` : "170px")};
 `;
 
 export const LedgerLine = styled.div`
   position: absolute;
   top: ${props => props.position && `${props.position}px`};
   height: 2px;
-  width: 23px;
-  background-color: ${Colors.black};
+  width: 22px;
+  background-color: ${Colors.darkGrey};
 `;
 
 export const Sharp = styled.span`

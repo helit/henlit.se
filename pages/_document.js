@@ -25,8 +25,12 @@ const resetStyles = `
 `;
 
 const globalStyles = `
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
     margin-bottom: 20px;
+  }
+
+  h4, h5, h6 {
+    margin-bottom: 8px;
   }
 `;
 

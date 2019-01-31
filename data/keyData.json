@@ -1137,7 +1137,7 @@
       }
     },
     "minor": {
-      "am": {
+      "a": {
         "meta": {
           "name": "A",
           "quality": "Minor"
@@ -1213,7 +1213,7 @@
           "2-5-1 (Bm7♭5-Em-Am)"
         ]
       },
-      "em": {
+      "e": {
         "meta": {
           "name": "E",
           "quality": "Minor"
@@ -1289,7 +1289,7 @@
           "2-5-1 (F♯m7♭5-Bm-Em)"
         ]
       },
-      "bm": {
+      "b": {
         "meta": {
           "name": "B",
           "quality": "Minor"
@@ -1365,7 +1365,7 @@
           "2-5-1 (C♯m7♭5-F♯m-Bm)"
         ]
       },
-      "f#m": {
+      "f#": {
         "meta": {
           "name": "F♯",
           "quality": "Minor"
@@ -1441,9 +1441,9 @@
           "2-5-1 (G♯m7♭5-C♯m-F♯m)"
         ]
       },
-      "c#m": {
+      "c#": {
         "meta": {
-          "name": "C",
+          "name": "C♯",
           "quality": "Minor"
         },
         "relativeKey": "E Major",
@@ -1517,7 +1517,7 @@
           "2-5-1 (D♯m7♭5-G♯m-C♯m)"
         ]
       },
-      "g#m": {
+      "g#": {
         "meta": {
           "name": "G♯",
           "quality": "Minor"
@@ -1597,7 +1597,7 @@
           "2-5-1 (A♯m7♭5-D♯m-G♯m)"
         ]
       },
-      "abm": {
+      "ab": {
         "meta": {
           "name": "A♭",
           "quality": "Minor"
@@ -1677,7 +1677,7 @@
           "2-5-1 (B♭m7♭5-E♭m-A♭m)"
         ]
       },
-      "d#m": {
+      "d#": {
         "meta": {
           "name": "D♯",
           "quality": "Minor"
@@ -1756,7 +1756,7 @@
           "2-5-1 (E♯m7♭5-A♯m-D♯m)"
         ]
       },
-      "ebm": {
+      "eb": {
         "meta": {
           "name": "E♭",
           "quality": "Minor"
@@ -1832,7 +1832,7 @@
           "2-5-1 (Fm7♭5-B♭m-E♭m)"
         ]
       },
-      "a#m": {
+      "a#": {
         "meta": {
           "name": "A♯",
           "quality": "Minor"
@@ -1912,7 +1912,7 @@
           "2-5-1 (B♯m7♭5-E♯m-A♯m)"
         ]
       },
-      "bbm": {
+      "bb": {
         "meta": {
           "name": "B",
           "quality": "Minor"
@@ -1992,7 +1992,7 @@
           "2-5-1 (Cm7♭5-Fm-B♭m)"
         ]
       },
-      "fm": {
+      "f": {
         "meta": {
           "name": "F",
           "quality": "Minor"
@@ -2068,7 +2068,7 @@
           "2-5-1 (Gm7♭5-Cm-Fm)"
         ]
       },
-      "cm": {
+      "c": {
         "meta": {
           "name": "C",
           "quality": "Minor"
@@ -2144,7 +2144,7 @@
           "2-5-1 (Dm7♭5-Gm-Cm)"
         ]
       },
-      "gm": {
+      "g": {
         "meta": {
           "name": "G",
           "quality": "Minor"
@@ -2220,7 +2220,7 @@
           "2-5-1 (Am7♭5-Dm-Gm)"
         ]
       },
-      "dm": {
+      "d": {
         "meta": {
           "name": "D",
           "quality": "Minor"
@@ -2297,5 +2297,129 @@
         ]
       }
     }
+  },
+  "circleOfFifths": {
+    "keys": [
+      {
+        "name": "C",
+        "relativeKeyName": "a",
+        "pos": {
+          "keyPosY": "-28px",
+          "keyPosX": "calc(50% - 32px)",
+          "relativeKeyPosY": "-2px",
+          "relativeKeyPosX": "calc(50% - 32px)"
+        }
+      },
+      {
+        "name": "G",
+        "relativeKeyName": "e",
+        "pos": {
+          "keyPosY": "-6px",
+          "keyPosX": "167px",
+          "relativeKeyPosY": "15px",
+          "relativeKeyPosX": "153px"
+        }
+      },
+      {
+        "name": "D",
+        "relativeKeyName": "b",
+        "pos": {
+          "keyPosY": "47px",
+          "keyPosX": "217px",
+          "relativeKeyPosY": "55px",
+          "relativeKeyPosX": "192px"
+        }
+      },
+      {
+        "name": "A",
+        "relativeKeyName": "f♯",
+        "pos": {
+          "keyPosY": "calc(50% - 14px)",
+          "keyPosX": "232px",
+          "relativeKeyPosY": "calc(50% - 14px)",
+          "relativeKeyPosX": "205px"
+        }
+      },
+      {
+        "name": "E",
+        "relativeKeyName": "c♯",
+        "pos": {
+          "keyPosY": "173px",
+          "keyPosX": "217px",
+          "relativeKeyPosY": "163px",
+          "relativeKeyPosX": "-6px"
+        }
+      },
+      {
+        "name": "B",
+        "relativeKeyName": "g♯",
+        "pos": {
+          "keyPosY": "230px",
+          "keyPosX": "167px",
+          "relativeKeyPosY": "203px",
+          "relativeKeyPosX": "153px"
+        }
+      },
+      {
+        "name": "G♭/F♯",
+        "relativeKeyName": "e♭/d♯",
+        "pos": {
+          "keyPosY": "250px",
+          "keyPosX": "calc(50% - 32px)",
+          "relativeKeyPosY": "222px",
+          "relativeKeyPosX": "calc(50% - 32px)"
+        }
+      },
+      {
+        "name": "D♭/C♯",
+        "relativeKeyName": "b♭/a♯",
+        "pos": {
+          "keyPosY": "230px",
+          "keyPosX": "-10px",
+          "relativeKeyPosY": "195px",
+          "relativeKeyPosX": "35px"
+        }
+      },
+      {
+        "name": "A♭",
+        "relativeKeyName": "f",
+        "pos": {
+          "keyPosY": "173px",
+          "keyPosX": "-35px",
+          "relativeKeyPosY": "163px",
+          "relativeKeyPosX": "195px"
+        }
+      },
+      {
+        "name": "E♭",
+        "relativeKeyName": "c",
+        "pos": {
+          "keyPosY": "calc(50% - 14px)",
+          "keyPosX": "-50px",
+          "relativeKeyPosY": "calc(50% - 14px)",
+          "relativeKeyPosX": "-22px"
+        }
+      },
+      {
+        "name": "B♭",
+        "relativeKeyName": "g",
+        "pos": {
+          "keyPosY": "47px",
+          "keyPosX": "-35px",
+          "relativeKeyPosY": "55px",
+          "relativeKeyPosX": "-6px"
+        }
+      },
+      {
+        "name": "F",
+        "relativeKeyName": "d",
+        "pos": {
+          "keyPosY": "-6px",
+          "keyPosX": "20px",
+          "relativeKeyPosY": "15px",
+          "relativeKeyPosX": "35px"
+        }
+      }
+    ]
   }
 }

@@ -8,39 +8,39 @@ const Label = styled.h4`
 `;
 
 const optionsMajor = [
-  { value: "c", label: "C" },
-  { value: "g", label: "G" },
-  { value: "d", label: "D" },
-  { value: "a", label: "A" },
-  { value: "e", label: "E" },
-  { value: "b", label: "B" },
-  { value: "cb", label: "C♭" },
-  { value: "f#", label: "F♯" },
-  { value: "gb", label: "G♭" },
-  { value: "c#", label: "C♯" },
-  { value: "db", label: "D♭" },
-  { value: "ab", label: "A♭" },
-  { value: "eb", label: "E♭" },
-  { value: "bb", label: "B♭" },
-  { value: "f", label: "F" }
+  { value: "c", label: "C Major" },
+  { value: "g", label: "G Major" },
+  { value: "d", label: "D Major" },
+  { value: "a", label: "A Major" },
+  { value: "e", label: "E Major" },
+  { value: "b", label: "B Major" },
+  { value: "cb", label: "C♭ Major" },
+  { value: "f#", label: "F♯ Major" },
+  { value: "gb", label: "G♭ Major" },
+  { value: "c#", label: "C♯ Major" },
+  { value: "db", label: "D♭ Major" },
+  { value: "ab", label: "A♭ Major" },
+  { value: "eb", label: "E♭ Major" },
+  { value: "bb", label: "B♭ Major" },
+  { value: "f", label: "F Major" }
 ];
 
 const optionsMinor = [
-  { value: "am", label: "Am" },
-  { value: "em", label: "Em" },
-  { value: "bm", label: "Bm" },
-  { value: "f#m", label: "F♯m" },
-  { value: "c#m", label: "C♯m" },
-  { value: "g#m", label: "G♯m" },
-  { value: "abm", label: "A♭m" },
-  { value: "d#m", label: "D♯m" },
-  { value: "ebm", label: "E♭m" },
-  { value: "a#m", label: "A♯m" },
-  { value: "bbm", label: "B♭m" },
-  { value: "fm", label: "Fm" },
-  { value: "cm", label: "Cm" },
-  { value: "gm", label: "Gm" },
-  { value: "dm", label: "Dm" }
+  { value: "a", label: "A Minor" },
+  { value: "e", label: "E Minor" },
+  { value: "b", label: "B Minor" },
+  { value: "f#", label: "F♯ Minor" },
+  { value: "c#", label: "C♯ Minor" },
+  { value: "g#", label: "G♯ Minor" },
+  { value: "ab", label: "A♭ Minor" },
+  { value: "d#", label: "D♯ Minor" },
+  { value: "eb", label: "E♭ Minor" },
+  { value: "a#", label: "A♯ Minor" },
+  { value: "bb", label: "B♭ Minor" },
+  { value: "f", label: "F Minor" },
+  { value: "c", label: "C Minor" },
+  { value: "g", label: "G Minor" },
+  { value: "d", label: "D Minor" }
 ];
 
 const FormSection = styled.div`
@@ -50,45 +50,38 @@ const FormSection = styled.div`
 export default class Filters extends React.Component {
   state = {
     selectedOption: optionsMajor[0],
-    isMinor: false,
+    isMinor: false
   };
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    this.props.selectedKey(selectedOption);
+    this.props.selectedKey(selectedOption, this.state.isMinor);
   };
 
   toggleCheckbox(e) {
     this.setState({ isMinor: e.target.checked });
     this.props.minor(e.target.checked);
+    this.props.selectedKey(this.state.selectedOption, e.target.checked);
   }
 
   render() {
-    const { selectedOption } = this.state;
+    const { selectedOption, isMinor } = this.state;
 
     return (
       <div>
         <Label>Key</Label>
         <FormSection>
-          {this.state.isMinor ? (
-            <Select
-              value={selectedOption}
-              onChange={this.handleChange}
-              options={optionsMinor}
-            />
-          ) : (
-            <Select
-              value={selectedOption}
-              onChange={this.handleChange}
-              options={optionsMajor}
-            />
-          )}
+          <Select
+            value={selectedOption}
+            onChange={this.handleChange}
+            options={isMinor ? optionsMinor : optionsMajor}
+          />
         </FormSection>
         <FormSection>
           <Checkbox
             id={"minor"}
             label={"Minor"}
-            checked={this.state.isMinor}
+            checked={isMinor}
             onChange={this.toggleCheckbox.bind(this)}
           />
         </FormSection>

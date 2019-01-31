@@ -1,7 +1,11 @@
 import Header from "../components/Header";
 import styled from "styled-components";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faUser,
+  faBriefcase,
+  faEnvelope
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(faUser, faBriefcase, faEnvelope);
 
