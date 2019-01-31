@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { lighten, darken } from 'polished';
 
 /* Colors */
 export const Colors = {
@@ -14,6 +15,8 @@ export const Colors = {
   brown: "#795548",
   grey: "#9e9e9e",
   blueGrey: "#607d8b",
+  lightGrey: "#ccc",
+  lighterGrey: "#f8f9fa",
   darkGrey: "#444"
 };
 
@@ -87,10 +90,10 @@ const CheckboxLabel = styled.label`
     display: inline-block;
     height: 16px;
     width: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid ${Colors.lightGrey};
     border-radius: 4px;
     margin-right: ${props => (props.label ? "10px" : "0px")};
-    background-color: #fff;
+    background-color: ${Colors.white};
     margin-top: -1px;
     ${props =>
       props.disabled ? "background-color: #ecf0f1" : "cursor: pointer"};
@@ -122,6 +125,95 @@ export class Checkbox extends React.Component {
           {this.props.label}
         </CheckboxLabel>
       </div>
+    );
+  }
+}
+
+const StyledButton = styled.button`
+  display: inline-block;
+  width: 100%;
+  color: ${props => props.theme.text};
+  background-color: ${props => props.theme.bg};
+  border: 1px solid transparent;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.hover};
+  }
+
+  &:active {
+    background-color: ${props => props.theme.active};
+  }
+`;
+
+StyledButton.defaultProps = {
+  theme: {
+    text: Colors.darkGrey,
+    bg: Colors.lighterGrey,
+    hover: darken(0.05, Colors.lighterGrey),
+    active: darken(0.1, Colors.lighterGrey)
+  }
+}
+
+const ButtonThemes = {
+  blue: {
+    text: Colors.white,
+    bg: Colors.blue,
+    hover: darken(0.05, Colors.blue),
+    active: darken(0.1, Colors.blue)
+  },
+  green: {
+    text: Colors.white,
+    bg: Colors.green,
+    hover: darken(0.05, Colors.green),
+    active: darken(0.1, Colors.green)
+  },
+  orange: {
+    text: Colors.white,
+    bg: Colors.orange,
+    hover: darken(0.05, Colors.orange),
+    active: darken(0.1, Colors.orange)
+  },
+  red: {
+    text: Colors.white,
+    bg: Colors.red,
+    hover: darken(0.05, Colors.red),
+    active: darken(0.1, Colors.red)
+  },
+}
+
+export class Button extends React.Component {
+  RenderButton() {
+    if (this.props.theme) {
+      let theme = ButtonThemes[this.props.theme];
+
+      return (
+        <StyledButton theme={theme}>
+          {this.props.text}
+        </StyledButton>
+      );
+    } else {
+      return (
+        <StyledButton>
+          {this.props.text}
+        </StyledButton>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        {this.RenderButton()}
+      </React.Fragment>
     );
   }
 }

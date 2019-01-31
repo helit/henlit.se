@@ -1,6 +1,6 @@
 import Select from "react-select";
 import styled from "styled-components";
-import { Checkbox } from "../Styles";
+import { Checkbox, Button } from "../Styles";
 
 const Label = styled.h4`
   margin-top: 0;
@@ -84,6 +84,10 @@ export default class Filters extends React.Component {
             checked={isMinor}
             onChange={this.toggleCheckbox.bind(this)}
           />
+        </FormSection>
+        <FormSection>
+          <Button text={'On Guitar'} />
+          <Button text={'On Piano'} />
         </FormSection>
       </div>
     );
