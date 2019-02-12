@@ -114,9 +114,6 @@ export class Signature extends React.Component {
       }
     }
 
-    console.log(sharps, flats);
-    console.log(count);
-
     return count;
   }
 
