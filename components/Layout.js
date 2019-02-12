@@ -13,6 +13,10 @@ const Layout = styled.div`
   margin: auto;
   max-width: 1280px;
   padding: 20px;
+
+  @media only screen and (max-width: 1072px) {
+    padding: 10px;
+  }
 `;
 
 export default props => (

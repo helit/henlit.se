@@ -75,6 +75,7 @@ export default class Filters extends React.Component {
             value={selectedOption}
             onChange={this.handleChange}
             options={isMinor ? optionsMinor : optionsMajor}
+            isSearchable={false}
           />
         </FormSection>
         <FormSection>

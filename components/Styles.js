@@ -29,23 +29,39 @@ export const Styles = {
 /* Layout */
 export const Wrapper = styled.div`
   display: flex;
+
+  @media only screen and (max-width: 1072px) {
+    flex-direction: column;
+  }
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  flex: 3;
   background-color: ${Colors.white};
   padding: 20px;
   border-radius: 4px;
   box-shadow: ${Styles.boxShadow};
+
+  @media only screen and (max-width: 1072px) {
+    flex: 1;
+    padding: 10px;
+  }
 `;
 
 export const SideMenu = styled.div`
+  flex: 1;
   background-color: ${Colors.white};
   padding: 20px;
-  width: 35%;
   margin-right: 40px;
   border-radius: 4px;
   box-shadow: ${Styles.boxShadow};
+
+  @media only screen and (max-width: 1072px) {
+    flex: 1;
+    margin-right: 0;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
 `;
 
 /* Elements */

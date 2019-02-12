@@ -26,7 +26,7 @@ export const FlatSteps = [-3, -27, 5, -19, 13, -11, 21];
 
 export const Staff = styled.div`
   position: relative;
-  width: ${props => props.width}px;
+  /* width: ${props => props.width}px; */
 `;
 
 export const FinalBarline = styled.div`
@@ -49,24 +49,91 @@ export const GClef = styled.span`
   position: absolute;
   top: -33px;
   left: 0;
-  &:before {
+  &:after {
     content: "\\1D11E";
     font-size: 90px;
   }
 `;
 
-export const Signature = styled.div`
-  position: absolute;
-  top: 0;
-  left: 48px;
-  width: 100px;
+const SignatureWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  margin-left: 50px;
+  width: ${props => props.width}px;
   height: 100%;
 `;
+
+const Sharp = styled.span`
+  position: absolute;
+  top: ${props => props.position}px;
+  left: ${props => 13 * props.index}px;
+  &:after {
+    content: "\\266F";
+    font-size: 35px;
+  }
+`;
+
+const Flat = styled.span`
+  position: absolute;
+  top: ${props => props.position}px;
+  left: ${props => 13 * props.index}px;
+  &:after {
+    content: "\\266D";
+    font-size: 40px;
+  }
+`;
+
+export class Signature extends React.Component {
+  SignatureWidth(sharps, flats)
+  {
+    let width = 0;
+
+    if (sharps > 0) {
+      width = sharps * 15;
+    }
+
+    if (flats > 0) {
+      width = flats * 15;
+    }
+
+    return width;
+  }
+
+  RenderSignature(sharps, flats) {
+    let count = [];
+
+    if (sharps > 0) {
+      for (let i = 0; i < sharps; i++) {
+        count.push(<Sharp key={i} position={SharpSteps[i]} index={i} />);
+      }
+    }
+
+    if (flats > 0) {
+      for (let i = 0; i < flats; i++) {
+        count.push(<Flat key={i} position={FlatSteps[i]} index={i} />);
+      }
+    }
+
+    console.log(sharps, flats);
+    console.log(count);
+
+    return count;
+  }
+
+  render() {
+    const { sharps, flats } = this.props;
+    return(
+      <SignatureWrapper width={this.SignatureWidth(sharps, flats)}>
+        {this.RenderSignature(sharps, flats)}
+      </SignatureWrapper>
+    );
+  }
+}
 
 export const QuarterNote = styled.span`
   position: absolute;
   ${props => props.flipped && "transform: rotateX(180deg) rotateY(180deg);"}
-  &:before {
+  &::after {
     content: "\\1D15F";
     font-size: 60px;
   }
@@ -87,24 +154,4 @@ export const LedgerLine = styled.div`
   height: 2px;
   width: 22px;
   background-color: ${Colors.darkGrey};
-`;
-
-export const Sharp = styled.span`
-  position: absolute;
-  top: ${props => props.position}px;
-  left: ${props => 13 * props.index}px;
-  &:before {
-    content: "\\266F";
-    font-size: 35px;
-  }
-`;
-
-export const Flat = styled.span`
-  position: absolute;
-  top: ${props => props.position}px;
-  left: ${props => 13 * props.index}px;
-  &:before {
-    content: "\\266D";
-    font-size: 40px;
-  }
 `;

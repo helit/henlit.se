@@ -20,6 +20,18 @@ const Wrapper = styled.div`
   position: relative;
   margin-top: 30px;
   margin-bottom: 50px;
+
+  @media only screen and (max-width: 1072px) {
+    /* zoom: 0.753; */
+  }
+`;
+
+const StaffOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 `;
 
 export default class MusicStaff extends React.Component {
@@ -31,30 +43,6 @@ export default class MusicStaff extends React.Component {
     }
 
     return lines;
-  }
-
-  RenderSignature(sharpCount, flatCount) {
-    if (sharpCount > 0) {
-      let sharps = [];
-
-      for (let i = 0; i < sharpCount; i++) {
-        sharps.push(<Sharp key={i} position={SharpSteps[i]} index={i} />);
-      }
-
-      return sharps;
-    }
-
-    if (flatCount > 0) {
-      let flats = [];
-
-      for (let i = 0; i < flatCount; i++) {
-        flats.push(<Flat key={i} position={FlatSteps[i]} index={i} />);
-      }
-
-      return flats;
-    }
-
-    return;
   }
 
   RenderNotes(octaves, sharps, flats) {
@@ -138,13 +126,15 @@ export default class MusicStaff extends React.Component {
     const { octaves, sharps, flats } = this.props;
     return (
       <Wrapper>
-        {this.RenderNotes(octaves, sharps, flats)}
-        <GClef />
-        <Signature>{this.RenderSignature(sharps, flats)}</Signature>
         <Staff width={this.StaffWidth(sharps, flats)}>
           {this.RenderStaffLines(5)}
           <FinalBarline />
+          <GClef />
         </Staff>
+        <StaffOverlay>
+          <Signature sharps={sharps} flats={flats} />
+          {this.RenderNotes(octaves, sharps, flats)}
+        </StaffOverlay>
       </Wrapper>
     );
   }
