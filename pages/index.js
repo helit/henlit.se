@@ -1,80 +1,57 @@
-import Layout from "../components/Layout";
-import Gravatar from "react-gravatar";
-import styled from "styled-components";
-import { ListItem, Colors, Styles } from "../components/Styles";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
-const Wrapper = styled.div`
-  max-width: 350px;
-  margin: auto;
-`;
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Henrik Littke - Web Developer, Gothenburg</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-const Contact = styled.div`
-  color: ${Colors.darkGrey};
-  width: 300px;
-  margin: auto;
-  padding: 20px;
-`;
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to <a href="https://nextjs.org">Next!</a>
+        </h1>
 
-const Divider = styled.div`
-  width: 35px;
-  height: 4px;
-  background-color: ${Colors.darkGrey};
-  margin-bottom: 20px;
-`;
+        <p className={styles.description}>
+          Get started by editing{' '}
+          <code className={styles.code}>pages/index.js</code>
+        </p>
 
-const IconWrapper = styled.div`
-  display: inline-block;
-  margin-right: 10px;
-`;
+        <div className={styles.grid}>
+          <a href="https://nextjs.org/docs" className={styles.card}>
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
 
-const avatarStyle = {
-  borderRadius: '50%',
-  boxShadow: Styles.boxShadow,
-};
+          <a href="https://nextjs.org/learn" className={styles.card}>
+            <h3>Learn &rarr;</h3>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
 
+          <a
+            href="https://github.com/vercel/next.js/tree/master/examples"
+            className={styles.card}
+          >
+            <h3>Examples &rarr;</h3>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
+          <a
+            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.card}
+          >
+            <h3>Deploy &rarr;</h3>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
+      </main>
 
-    this.state = {
-      title: 'henlit.se',
-    };
-  }
-
-  render() {
-    const { title } = this.state;
-
-    return (
-      <Layout title={title}>
-        <Wrapper>
-          <Gravatar email="henrik.littke@gmail.com"
-            size={350}
-            style={avatarStyle}/>
-          <Contact>
-            <h4>henlit.se</h4>
-            <Divider />
-            <ul>
-              <ListItem>
-                <IconWrapper>
-                  <FontAwesomeIcon icon="user"/>
-                </IconWrapper>
-                Henrik Littke</ListItem>
-              <ListItem>
-                <IconWrapper>
-                  <FontAwesomeIcon icon="briefcase"/>
-                </IconWrapper>
-                Programmer / Musician</ListItem>
-              <ListItem>
-                <IconWrapper>
-                  <FontAwesomeIcon icon="envelope"/>
-                </IconWrapper>
-                henrik.littke@gmail.com</ListItem>
-            </ul>
-          </Contact>
-        </Wrapper>
-      </Layout>
-    );
-  }
+      <footer className={styles.footer}>
+      </footer>
+    </div>
+  )
 }
