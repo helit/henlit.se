@@ -1,0 +1,9 @@
+.nav {
+  height: 60px;
+  width: 100%;
+  padding: 8px;
+}
+
+.navItem {
+  margin: 0 8px;
+}
