@@ -1,12 +1,15 @@
-import "./App.css";
-import { IntroBox } from "./components/IntroBox";
+import { ThemeProvider, Typography } from "@mui/material";
+import { Main } from "./App.styled";
+import theme from "./themes/theme";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <IntroBox />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Main>
+        <Typography variant='h1'>henlit.se</Typography>
+      </Main>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
