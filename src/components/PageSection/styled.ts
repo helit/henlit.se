@@ -20,7 +20,7 @@ export const Header = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 900px;
+  max-width: 900px;
 `;
 
 export const Footer = styled.div`
