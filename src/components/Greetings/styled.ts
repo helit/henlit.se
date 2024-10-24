@@ -30,4 +30,6 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
   border-radius: 50%;
   max-width: 80%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 `;

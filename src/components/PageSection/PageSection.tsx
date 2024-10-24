@@ -1,10 +1,6 @@
-import { ReactNode } from "react";
-import {
-  SectionContent,
-  SectionFooter,
-  SectionHeader,
-  SectionWrapper,
-} from "./PageSection.styled";
+import { ReactNode, forwardRef } from "react";
+
+import * as Styled from "./styled";
 
 export type PageSectionProps = {
   backgroundColor?: string;
@@ -14,18 +10,29 @@ export type PageSectionProps = {
   children: ReactNode;
 };
 
-export const PageSection = ({
-  backgroundColor = "#fff",
-  centerX = false,
-  headerContent,
-  footerContent,
-  children,
-}: PageSectionProps) => {
-  return (
-    <SectionWrapper backgroundColor={backgroundColor} centerX={centerX}>
-      <SectionHeader>{headerContent}</SectionHeader>
-      <SectionContent>{children}</SectionContent>
-      <SectionFooter>{footerContent}</SectionFooter>
-    </SectionWrapper>
-  );
-};
+export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
+  (
+    {
+      backgroundColor = "#fff",
+      centerX = false,
+      headerContent,
+      footerContent,
+      children,
+    },
+    ref
+  ) => {
+    return (
+      <Styled.Wrapper
+        backgroundColor={backgroundColor}
+        centerX={centerX}
+        ref={ref}
+      >
+        <Styled.Header>{headerContent}</Styled.Header>
+        <Styled.Content>{children}</Styled.Content>
+        <Styled.Footer>{footerContent}</Styled.Footer>
+      </Styled.Wrapper>
+    );
+  }
+);
+
+PageSection.displayName = "PageSection";
