@@ -1,14 +1,14 @@
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, forwardRef } from "react"
 
-import * as Styled from "./styled";
+import * as Styled from "./PageSection.styled"
 
 export type PageSectionProps = {
-  backgroundColor?: string;
-  centerX?: boolean;
-  headerContent?: ReactNode;
-  footerContent?: ReactNode;
-  children: ReactNode;
-};
+  backgroundColor?: string
+  centerX?: boolean
+  headerContent?: ReactNode
+  footerContent?: ReactNode
+  children: ReactNode
+}
 
 export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
   (
@@ -31,8 +31,8 @@ export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
         <Styled.Content>{children}</Styled.Content>
         <Styled.Footer>{footerContent}</Styled.Footer>
       </Styled.Wrapper>
-    );
+    )
   }
-);
+)
 
-PageSection.displayName = "PageSection";
+PageSection.displayName = "PageSection"

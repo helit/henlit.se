@@ -1,7 +1,5 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mantine/core"
 
-const theme = createTheme({
-  palette: {},
-});
+const theme = createTheme({})
 
-export default theme;
+export default theme
