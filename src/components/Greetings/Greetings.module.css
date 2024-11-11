@@ -1,0 +1,22 @@
+.intro {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.image-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+}
+
+.image {
+  border-radius: 50%;
+  max-width: 80%;
+  border: 5px solid var(--mantine-color-white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
+}

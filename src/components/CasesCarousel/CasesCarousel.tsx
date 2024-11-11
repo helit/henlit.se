@@ -1,6 +1,6 @@
-import { Card, Text } from "@mantine/core"
-import Carousel from "react-multi-carousel"
-import "react-multi-carousel/lib/styles.css"
+import { Card, Text } from "@mantine/core";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export const CasesCarousel = () => {
   const items = [
@@ -28,7 +28,7 @@ export const CasesCarousel = () => {
       title: "Title 6",
       description: "Description 6",
     },
-  ]
+  ];
 
   const responsive = {
     superLargeDesktop: {
@@ -48,7 +48,7 @@ export const CasesCarousel = () => {
       breakpoint: { max: 464, min: 0 },
       items: 1,
     },
-  }
+  };
 
   return (
     <Carousel responsive={responsive}>
@@ -59,5 +59,5 @@ export const CasesCarousel = () => {
         </Card>
       ))}
     </Carousel>
-  )
-}
+  );
+};

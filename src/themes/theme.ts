@@ -1,5 +1,8 @@
-import { createTheme } from "@mantine/core"
+import { createTheme } from "@mantine/core";
 
-const theme = createTheme({})
+const theme = createTheme({
+  fontFamily: "Roboto, sans-serif",
+  fontFamilyMonospace: "Monaco, Courier, monospace",
+});
 
-export default theme
+export default theme;

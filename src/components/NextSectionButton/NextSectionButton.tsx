@@ -1,23 +1,25 @@
-import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
-import * as Styled from "./NextSectionButton.styled"
-import { ActionIcon } from "@mantine/core"
+import styles from "./NextSectionButton.module.css";
+import { ActionIcon } from "@mantine/core";
 
 type NextSectionButtonProps = {
-  scrollTo: () => void
-  isScrollToTop?: boolean
-}
+  scrollTo: () => void;
+  isScrollToTop?: boolean;
+  iconColor?: "dark" | "light";
+};
 
 export const NextSectionButton = ({
   scrollTo,
   isScrollToTop,
+  iconColor = "dark",
 }: NextSectionButtonProps) => {
   return (
-    <Styled.Wrapper>
+    <div className={styles.wrapper}>
       <ActionIcon
         onClick={scrollTo}
-        variant="subtle"
-        color="white"
+        variant={"subtle"}
+        color={iconColor === "dark" ? "black" : "white"}
         size="xl"
         radius="xl"
       >
@@ -27,6 +29,6 @@ export const NextSectionButton = ({
           <FiChevronDown size={32} />
         )}
       </ActionIcon>
-    </Styled.Wrapper>
-  )
-}
+    </div>
+  );
+};

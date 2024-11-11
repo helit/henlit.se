@@ -1,18 +1,35 @@
-import { Button, Text, Textarea, TextInput } from "@mantine/core"
-import * as Styled from "./Contact.styled"
+import { Button, Textarea, TextInput } from "@mantine/core";
+import styles from "./Contact.module.css";
 
 export const Contact = () => {
   return (
-    <>
-      <Text variant="h2">Contact me</Text>
-      <Styled.ContactForm action="mailto:henrik.littke@gmail.com">
-        <TextInput type="email" name="email" label="Your Email" />
-        <TextInput type="text" name="subject" label="Subject" />
-        <Textarea name="body" label="Message" />
-        <Button variant="outlined" type="submit">
+    <form action="mailto:henrik.littke@gmail.com">
+      <TextInput
+        className={styles["input-margin"]}
+        type="email"
+        name="email"
+        label="Your Email"
+      />
+      <TextInput
+        className={styles["input-margin"]}
+        type="text"
+        name="subject"
+        label="Subject"
+      />
+      <Textarea
+        className={styles["input-margin"]}
+        name="body"
+        label="Message"
+        placeholder="What's up?"
+        autosize
+        minRows={12}
+        maxRows={12}
+      />
+      <div className={styles["button-wrapper"]}>
+        <Button variant="outlined" type="submit" size="md">
           Send
         </Button>
-      </Styled.ContactForm>
-    </>
-  )
-}
+      </div>
+    </form>
+  );
+};

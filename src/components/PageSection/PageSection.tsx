@@ -1,19 +1,22 @@
-import { ReactNode, forwardRef } from "react"
+import { ReactNode, forwardRef } from "react";
 
-import * as Styled from "./PageSection.styled"
+import styles from "./PageSection.module.css";
+import { useMantineTheme } from "@mantine/core";
 
 export type PageSectionProps = {
-  backgroundColor?: string
-  centerX?: boolean
-  headerContent?: ReactNode
-  footerContent?: ReactNode
-  children: ReactNode
-}
+  backgroundColor?: string;
+  textColor?: "dark" | "light";
+  centerX?: boolean;
+  headerContent?: ReactNode;
+  footerContent?: ReactNode;
+  children: ReactNode;
+};
 
-export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
+export const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(
   (
     {
-      backgroundColor = "#fff",
+      backgroundColor,
+      textColor = "dark",
       centerX = false,
       headerContent,
       footerContent,
@@ -21,18 +24,23 @@ export const PageSection = forwardRef<HTMLElement, PageSectionProps>(
     },
     ref
   ) => {
+    const theme = useMantineTheme();
     return (
-      <Styled.Wrapper
-        backgroundColor={backgroundColor}
-        centerX={centerX}
+      <div
+        className={styles.wrapper}
+        style={{
+          backgroundColor: backgroundColor ?? theme.white,
+          color: textColor === "dark" ? theme.black : theme.white,
+          alignItems: centerX ? "center" : "flex-start",
+        }}
         ref={ref}
       >
-        <Styled.Header>{headerContent}</Styled.Header>
-        <Styled.Content>{children}</Styled.Content>
-        <Styled.Footer>{footerContent}</Styled.Footer>
-      </Styled.Wrapper>
-    )
+        <div className={styles.header}>{headerContent}</div>
+        <div className={styles.content}>{children}</div>
+        <div className={styles.footer}>{footerContent}</div>
+      </div>
+    );
   }
-)
+);
 
-PageSection.displayName = "PageSection"
+PageSection.displayName = "PageSection";
