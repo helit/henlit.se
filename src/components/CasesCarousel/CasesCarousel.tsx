@@ -1,6 +1,6 @@
 import { Card, Text } from "@mantine/core";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import "@mantine/carousel/styles.css";
+import { Carousel } from "@mantine/carousel";
 
 export const CasesCarousel = () => {
   const items = [
@@ -30,33 +30,21 @@ export const CasesCarousel = () => {
     },
   ];
 
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   return (
-    <Carousel responsive={responsive}>
+    <Carousel
+      withIndicators
+      slideSize={"70%"}
+      slideGap={"md"}
+      height={500}
+      align={"center"}
+    >
       {items.map((item) => (
-        <Card key={item.title} style={{ height: "300px" }}>
-          <Text variant="h4">{item.title}</Text>
-          <Text variant="body1">{item.description}</Text>
-        </Card>
+        <Carousel.Slide>
+          <Card key={item.title} style={{ height: "100%" }}>
+            <Text variant="h4">{item.title}</Text>
+            <Text variant="body1">{item.description}</Text>
+          </Card>
+        </Carousel.Slide>
       ))}
     </Carousel>
   );

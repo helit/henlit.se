@@ -5,6 +5,7 @@ import { Greetings, NextSectionButton } from "./components";
 import { PageSection } from "./components/PageSection/PageSection";
 import { useRef } from "react";
 import { Contact } from "./components/Contact/Contact";
+import { CasesCarousel } from "./components/CasesCarousel/CasesCarousel";
 
 function App() {
   const sectionRefs = [
@@ -23,7 +24,7 @@ function App() {
           footerContent={
             <NextSectionButton
               scrollTo={() =>
-                sectionRefs[2].current?.scrollIntoView({
+                sectionRefs[1].current?.scrollIntoView({
                   behavior: "smooth",
                 })
               }
@@ -34,20 +35,23 @@ function App() {
         >
           <Greetings />
         </PageSection>
-        {/* <PageSection
+        <PageSection
+          headerContent={<Title variant="h2">Cases</Title>}
           backgroundColor={"dodgerblue"}
+          textColor="light"
           centerX
           footerContent={
             <NextSectionButton
               scrollTo={() =>
                 sectionRefs[2].current?.scrollIntoView({ behavior: "smooth" })
               }
+              iconColor="light"
             />
           }
           ref={sectionRefs[1]}
         >
           <CasesCarousel />
-        </PageSection> */}
+        </PageSection>
         <PageSection
           headerContent={<Title variant="h2">Contact me</Title>}
           backgroundColor={"orange"}
