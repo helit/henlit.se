@@ -1,13 +1,24 @@
 import styles from "./App.module.css";
-import theme from "./themes/theme";
-import { MantineProvider, Title } from "@mantine/core";
 import { Greetings, NextSectionButton } from "./components";
 import { PageSection } from "./components/PageSection/PageSection";
 import { useRef } from "react";
+import { Box, createTheme, ThemeProvider, Typography } from "@mui/material";
 import { Contact } from "./components/Contact/Contact";
-import { CasesCarousel } from "./components/CasesCarousel/CasesCarousel";
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#ffb300",
+      },
+    },
+    typography: {
+      allVariants: {
+        color: "white",
+      },
+    },
+  });
+
   const sectionRefs = [
     useRef<HTMLDivElement | null>(null),
     useRef<HTMLDivElement | null>(null),
@@ -15,12 +26,13 @@ function App() {
   ];
 
   return (
-    <MantineProvider theme={theme}>
-      <div className={styles.main}>
+    <ThemeProvider theme={theme}>
+      <Box className={styles.main}>
         <PageSection
-          backgroundColor={"#AA4A44"}
+          bgColor={
+            "linear-gradient(344deg, #1d1d3c 0%, #556575 65%, #c28674 100%)"
+          }
           textColor="light"
-          centerX
           footerContent={
             <NextSectionButton
               scrollTo={() =>
@@ -36,10 +48,13 @@ function App() {
           <Greetings />
         </PageSection>
         <PageSection
-          headerContent={<Title variant="h2">Cases</Title>}
-          backgroundColor={"dodgerblue"}
+          headerContent={
+            <Typography variant="h4" component="h2">
+              Cases
+            </Typography>
+          }
+          bgColor={"#1d1d3c"}
           textColor="light"
-          centerX
           footerContent={
             <NextSectionButton
               scrollTo={() =>
@@ -50,12 +65,15 @@ function App() {
           }
           ref={sectionRefs[1]}
         >
-          <CasesCarousel />
+          <div>Carousel</div>
         </PageSection>
         <PageSection
-          headerContent={<Title variant="h2">Contact me</Title>}
-          backgroundColor={"orange"}
-          centerX
+          headerContent={
+            <Typography variant="h4" component="h2">
+              Contact me
+            </Typography>
+          }
+          bgColor={"#556575"}
           textColor="light"
           footerContent={
             <NextSectionButton
@@ -72,8 +90,8 @@ function App() {
         >
           <Contact />
         </PageSection>
-      </div>
-    </MantineProvider>
+      </Box>
+    </ThemeProvider>
   );
 }
 

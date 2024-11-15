@@ -5,3 +5,5 @@ export const breakpoints = {
   lg: "1200px",
   xl: "1600px",
 };
+
+export const maxWidth = "1200px";

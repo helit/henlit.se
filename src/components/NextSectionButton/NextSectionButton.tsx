@@ -1,7 +1,7 @@
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import styles from "./NextSectionButton.module.css";
-import { ActionIcon } from "@mantine/core";
+import { Box, IconButton, useTheme } from "@mui/material";
 
 type NextSectionButtonProps = {
   scrollTo: () => void;
@@ -12,23 +12,17 @@ type NextSectionButtonProps = {
 export const NextSectionButton = ({
   scrollTo,
   isScrollToTop,
-  iconColor = "dark",
+  iconColor,
 }: NextSectionButtonProps) => {
+  const { palette } = useTheme();
+
+  const color =
+    iconColor === "light" ? palette.common.white : palette.common.black;
   return (
-    <div className={styles.wrapper}>
-      <ActionIcon
-        onClick={scrollTo}
-        variant={"subtle"}
-        color={iconColor === "dark" ? "black" : "white"}
-        size="xl"
-        radius="xl"
-      >
-        {isScrollToTop ? (
-          <FiChevronUp size={32} />
-        ) : (
-          <FiChevronDown size={32} />
-        )}
-      </ActionIcon>
-    </div>
+    <Box display={"flex"} justifyContent={"center"}>
+      <IconButton onClick={scrollTo} style={{ color: color }}>
+        {isScrollToTop ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+      </IconButton>
+    </Box>
   );
 };
