@@ -4,6 +4,7 @@ import { PageSection } from "./components/PageSection/PageSection";
 import { useRef } from "react";
 import { Box, createTheme, ThemeProvider, Typography } from "@mui/material";
 import { Contact } from "./components/Contact/Contact";
+import { Cases } from "./components/Cases/Cases";
 
 function App() {
   const theme = createTheme({
@@ -27,11 +28,19 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className={styles.main}>
+      <Box
+        className={styles.main}
+        style={{
+          background:
+            "linear-gradient(330deg, #1d1d3c 0%, #556575 65%, #a58c62 100%)",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+        }}
+      >
         <PageSection
-          bgColor={
-            "linear-gradient(344deg, #1d1d3c 0%, #556575 65%, #c28674 100%)"
-          }
+          // bgColor={
+          //   "linear-gradient(344deg, #1d1d3c 0%, #556575 65%, #c28674 100%)"
+          // }
           textColor="light"
           footerContent={
             <NextSectionButton
@@ -53,7 +62,7 @@ function App() {
               Cases
             </Typography>
           }
-          bgColor={"#1d1d3c"}
+          // bgColor={"#1d1d3c"}
           textColor="light"
           footerContent={
             <NextSectionButton
@@ -65,7 +74,7 @@ function App() {
           }
           ref={sectionRefs[1]}
         >
-          <div>Carousel</div>
+          <Cases />
         </PageSection>
         <PageSection
           headerContent={
@@ -73,7 +82,7 @@ function App() {
               Contact me
             </Typography>
           }
-          bgColor={"#556575"}
+          // bgColor={"#556575"}
           textColor="light"
           footerContent={
             <NextSectionButton

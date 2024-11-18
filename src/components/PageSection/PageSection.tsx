@@ -12,7 +12,13 @@ export type PageSectionProps = {
 
 export const PageSection = forwardRef<HTMLDivElement, PageSectionProps>(
   (
-    { bgColor, textColor = "dark", headerContent, footerContent, children },
+    {
+      bgColor = "transparent",
+      textColor = "dark",
+      headerContent,
+      footerContent,
+      children,
+    },
     ref
   ) => {
     return (
