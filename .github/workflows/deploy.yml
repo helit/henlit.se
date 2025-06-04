@@ -28,6 +28,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Dummy step to satisfy artifact dependency
+        uses: actions/upload-artifact@v3
+        with:
+          name: noop
+          path: .github/workflows/README.md
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
