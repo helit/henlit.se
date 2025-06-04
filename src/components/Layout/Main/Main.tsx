@@ -34,7 +34,7 @@ export const Main = () => {
           </span>
           , I'm a fullstack web developer based in Gothenburg, Sweden. I'm
           specialized in node.js, react & typescript. I also like to code other
-          things and tinker with computers. I sometimes make games and 3d
+          things and tinker with computers. I sometimes make video games and 3d
           models.
         </p>
         <p style={{ maxWidth: "500px" }}>
