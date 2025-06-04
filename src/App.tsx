@@ -1,9 +1,8 @@
-import { Main, Navigation, Wrapper } from "./components";
+import { Main, Wrapper } from "./components";
 
 function App() {
   return (
     <Wrapper>
-      <Navigation />
       <Main />
     </Wrapper>
   );

@@ -8,7 +8,7 @@ export const OuterWrapper = styled.div`
   font-style: normal;
   background-color: ${theme.background};
   color: ${theme.text};
-  padding: 8px;
+  padding: 4px;
   height: 100%;
 `;
 
@@ -17,6 +17,7 @@ export const InnerWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  height: inherit;
 `;
 
 interface WrapperProps {
