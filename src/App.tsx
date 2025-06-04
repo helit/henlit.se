@@ -1,11 +1,9 @@
 import { Main, Wrapper } from "./components";
 
-function App() {
+export const App = () => {
   return (
     <Wrapper>
       <Main />
     </Wrapper>
   );
-}
-
-export default App;
+};
