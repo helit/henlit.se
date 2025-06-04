@@ -1,3 +1,4 @@
+import { theme } from "@/theme";
 import { useEffect, useState } from "react";
 
 export const Cursor = () => {
@@ -11,5 +12,9 @@ export const Cursor = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  return <span>{showCursor ? "█" : " "}</span>;
+  return (
+    <span style={{ color: `${showCursor ? theme.text : "transparent"}` }}>
+      █
+    </span>
+  );
 };
