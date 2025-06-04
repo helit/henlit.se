@@ -1,3 +1,7 @@
-export * from "./Greetings/Greetings";
-export * from "./PageSection/PageSection";
-export * from "./NextSectionButton/NextSectionButton";
+// Atoms
+export * from "./Atoms/Box";
+
+// Layout
+export * from "./Layout/Wrapper/Wrapper";
+export * from "./Layout/Navigation/Navigation";
+export * from "./Layout/Main/Main";
