@@ -11,7 +11,7 @@ const MainWrapper = styled.main`
   width: 100%;
   height: 100%;
   gap: 8px;
-  border: thick double ${theme.primary};
+  border: thick double ${theme.border};
 `;
 
 export const Main = () => {
