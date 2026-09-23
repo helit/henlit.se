@@ -76,10 +76,12 @@ export const App = () => {
     setMessage(null);
   }, [page]);
 
-  // Landing on a screenful highlights its first link, or nothing if it has none.
+  // Landing on a screenful highlights its first link, or nothing if it has
+  // none. Touch gets no default highlight: with no arrow keys to move it, a
+  // filled row reads as "this one is active" rather than "these are tappable".
   useEffect(() => {
-    setSelected(firstLinkOnScreen(screenOfLink, currentIndex));
-  }, [screenOfLink, currentIndex]);
+    setSelected(compact ? -1 : firstLinkOnScreen(screenOfLink, currentIndex));
+  }, [screenOfLink, currentIndex, compact]);
 
   // A physical keyboard means we can focus the prompt eagerly; on touch that
   // would throw up the on-screen keyboard over the page, so we wait to be asked.

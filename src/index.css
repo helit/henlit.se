@@ -6,6 +6,9 @@
     monospace;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
+  /* Safari inflates text on rotation unless this is pinned. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 * {

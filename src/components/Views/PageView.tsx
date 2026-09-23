@@ -108,9 +108,20 @@ const Row = styled.a<{ active: boolean }>`
   text-shadow: ${({ active }) => (active ? "none" : glow(theme.text))};
   outline: none;
 
-  &:hover {
+  /* Guarded, or a tap leaves the hover state stuck on until you tap elsewhere. */
+  @media (hover: hover) {
+    &:hover {
+      background: ${({ active }) =>
+        active ? theme.bright : "rgba(217, 159, 74, 0.1)"};
+    }
+  }
+
+  /* Touch feedback in the site's own colour rather than the browser's grey. */
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
     background: ${({ active }) =>
-      active ? theme.bright : "rgba(217, 159, 74, 0.1)"};
+      active ? theme.bright : "rgba(217, 159, 74, 0.2)"};
   }
 
   &::before {

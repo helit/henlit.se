@@ -105,7 +105,8 @@ const Corners = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  padding: clamp(12px, 3vmin, 26px) clamp(20px, 6vw, 60px) 0;
+  padding: calc(clamp(12px, 3vmin, 26px) + env(safe-area-inset-top, 0px))
+    clamp(20px, 6vw, 60px) 0;
   color: ${theme.dim};
   text-shadow: none;
   font-size: clamp(12px, 1.75vw, 15px);
@@ -133,9 +134,11 @@ const Viewport = styled.div<{ alignTop?: boolean }>`
   padding: clamp(10px, 2.5vmin, 26px) clamp(20px, 6vw, 60px)
     clamp(6px, 1.5vmin, 14px);
 
+  /* Grows to fill a short screen so the prompt lands at the bottom, and grows
+     past it when there is more content than that. */
   @media ${COMPACT_QUERY} {
-    flex: none;
-    min-height: 0;
+    flex: 1 0 auto;
+    min-height: auto;
     overflow: visible;
     justify-content: flex-start;
   }
