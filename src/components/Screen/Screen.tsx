@@ -52,9 +52,14 @@ const Stage = styled.div`
 /**
  * Scanlines, vignette and flicker sit in one non-interactive overlay so no
  * effect ever costs a frame of JS or blocks a click on the text underneath.
+ *
+ * Fixed, not absolute: the glass is a screen, so it stays put while content
+ * scrolls behind it. Absolute would also break outright on narrow screens,
+ * where the parent is static and there is no positioned ancestor to resolve
+ * against, leaving the overlay one viewport tall at the top of the document.
  */
 const Overlay = styled.div`
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 2;

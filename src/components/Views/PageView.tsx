@@ -94,10 +94,12 @@ const Row = styled.a<{ active: boolean }>`
   justify-content: space-between;
   padding: 3px 10px;
 
+  /* Wrapping rather than stacking, so the "> " marker stays on the label's
+     line instead of becoming a flex item of its own above it. */
   @media ${COMPACT_QUERY} {
-    flex-direction: column;
-    gap: 0;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0 8px;
     padding: 6px 10px;
   }
   text-decoration: none;
@@ -123,6 +125,7 @@ const Note = styled.span`
   text-align: right;
 
   @media ${COMPACT_QUERY} {
+    flex-basis: 100%;
     text-align: left;
   }
 `;
