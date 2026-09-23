@@ -20,7 +20,7 @@ body,
 
 body {
   margin: 0;
-  background: #100e0a;
+  background: #1a1b26;
   color: #d99f4a;
   overscroll-behavior: none;
   /* Wide screens paginate instead of scrolling, so nothing should overflow. */
@@ -57,6 +57,6 @@ body {
 
 ::selection {
   background: #ffc871;
-  color: #100e0a;
+  color: #1a1b26;
   text-shadow: none;
 }

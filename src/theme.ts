@@ -1,15 +1,16 @@
 /**
- * One phosphor, four intensities. A real terminal had no second hue: it varied
- * brightness and inverted the video for selection, which is what this does.
+ * Amber phosphor on the dark blue-grey ground the site has always used. One
+ * hue, four intensities: a real terminal had no second colour, it varied
+ * brightness and inverted the video for selection.
  *
- * Contrast against `screen`, measured: dim 5.2:1, text 8.3:1, bright 12.6:1.
+ * Contrast against `screen`, measured: dim 5.1:1, text 7.3:1, bright 11.2:1.
  * `dim` carries real text (hints, labels, chrome) so it has to clear 4.5:1
  * with room to spare, because the scanline overlay darkens it further.
  */
 export const theme = {
-  screen: "#100e0a",
-  faint: "#52401f",
-  dim: "#a37f40",
+  screen: "#1a1b26",
+  faint: "#544835",
+  dim: "#ab8646",
   text: "#d99f4a",
   bright: "#ffc871",
 };
