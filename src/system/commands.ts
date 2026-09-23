@@ -62,7 +62,7 @@ export const COMMANDS: CommandSpec[] = [
   },
   {
     names: ["reboot", "restart"],
-    description: "Run the startup sequence again",
+    description: "Restart the system",
     run: () => ({ kind: "reboot" }),
   },
   {
