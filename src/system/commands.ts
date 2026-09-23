@@ -5,6 +5,7 @@ type CommandResult =
   | { kind: "external"; href: string }
   | { kind: "download"; href: string }
   | { kind: "back" }
+  | { kind: "reboot" }
   | { kind: "message"; tone: "info" | "error"; text: string };
 
 interface CommandSpec {
@@ -58,6 +59,11 @@ export const COMMANDS: CommandSpec[] = [
     names: ["back"],
     description: "Step back through history",
     run: () => ({ kind: "back" }),
+  },
+  {
+    names: ["reboot", "restart"],
+    description: "Run the startup sequence again",
+    run: () => ({ kind: "reboot" }),
   },
   {
     names: ["cv", "resume"],

@@ -49,7 +49,7 @@ export const App = () => {
     !compact
   );
 
-  const [booting, finishBoot] = useBootSequence();
+  const { booting, finish: finishBoot, restart: reboot } = useBootSequence();
   const [pageIndex, setPageIndex] = useState(0);
   const [selected, setSelected] = useState(0);
   const [input, setInput] = useState("");
@@ -119,11 +119,14 @@ export const App = () => {
       case "back":
         window.history.back();
         break;
+      case "reboot":
+        reboot();
+        break;
       case "message":
         setMessage({ tone: result.tone, text: result.text });
         break;
     }
-  }, []);
+  }, [reboot]);
 
   const turnPage = useCallback(
     (step: number) => {
@@ -139,6 +142,9 @@ export const App = () => {
   useWindowKeydown((event) => {
     const { key, ctrlKey, metaKey, altKey } = event;
     if (metaKey || altKey) return;
+    // While the log is running its own skip handler owns the keyboard,
+    // otherwise the keypress that skips the boot also fires a navigation.
+    if (booting) return;
     const isEmpty = input.length === 0;
     const onLink = document.activeElement instanceof HTMLAnchorElement;
 
@@ -204,6 +210,7 @@ export const App = () => {
         heading={page.heading}
         machine={`${MACHINE.name} ${MACHINE.version}`}
         status='BOOT'
+        alignTop
       >
         <Boot onDone={finishBoot} />
       </Screen>

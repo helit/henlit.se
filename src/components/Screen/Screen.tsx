@@ -115,7 +115,7 @@ const Corner = styled.span`
 `;
 
 /** Clips rather than scrolls: anything that doesn't fit is paginated instead. */
-const Viewport = styled.div`
+const Viewport = styled.div<{ alignTop?: boolean }>`
   position: relative;
   flex: 1;
   min-height: 0;
@@ -124,7 +124,7 @@ const Viewport = styled.div`
      because pagination guarantees the content already fits. */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: ${({ alignTop }) => (alignTop ? "flex-start" : "center")};
   padding: clamp(10px, 2.5vmin, 26px) clamp(20px, 6vw, 60px)
     clamp(6px, 1.5vmin, 14px);
 
@@ -145,12 +145,17 @@ interface ScreenProps {
   status: string;
   /** Announced politely when the keyboard selection moves. */
   announcement?: string;
+  /** Anchors content to the top, for output that writes downward. */
+  alignTop?: boolean;
   children: React.ReactNode;
   footer?: React.ReactNode;
 }
 
 export const Screen = forwardRef<HTMLDivElement, ScreenProps>(
-  ({ heading, machine, status, announcement, children, footer }, ref) => (
+  (
+    { heading, machine, status, announcement, alignTop, children, footer },
+    ref
+  ) => (
     <Glass>
       <Overlay />
       <Stage>
@@ -159,7 +164,9 @@ export const Screen = forwardRef<HTMLDivElement, ScreenProps>(
           <Corner>{machine}</Corner>
           <Corner aria-live='polite'>{status}</Corner>
         </Corners>
-        <Viewport ref={ref}>{children}</Viewport>
+        <Viewport ref={ref} alignTop={alignTop}>
+          {children}
+        </Viewport>
         {footer}
         <div className='sr-only' role='status' aria-live='polite'>
           {announcement}

@@ -35,7 +35,7 @@ const BOOT_KEY = "booted";
  * The boot sequence is a first impression, not a toll gate: it plays once per
  * tab, and not at all for anyone who has asked for less motion.
  */
-export const useBootSequence = (): [boolean, () => void] => {
+export const useBootSequence = () => {
   const [booting, setBooting] = useState(
     () =>
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
@@ -47,7 +47,10 @@ export const useBootSequence = (): [boolean, () => void] => {
     writeSession(BOOT_KEY, "true");
   }, []);
 
-  return [booting, finish];
+  /** Replays it on request, whatever the tab has already seen. */
+  const restart = useCallback(() => setBooting(true), []);
+
+  return { booting, finish, restart };
 };
 
 /** Keeps the crawler-facing description in step with whatever page is open. */
