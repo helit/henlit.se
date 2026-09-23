@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Page } from "./types";
 
 /** Triggers a save, so keyboard activation behaves like clicking the row. */
 export const saveFile = (href: string) => {
@@ -51,14 +50,14 @@ export const useBootSequence = (): [boolean, () => void] => {
   return [booting, finish];
 };
 
-/** Keeps the tab title and the crawler-facing description on the current page. */
-export const useDocumentMetadata = (page: Page, suffix: string) => {
+/** Keeps the crawler-facing description in step with whatever page is open. */
+export const useDocumentMetadata = (title: string, description: string) => {
   useEffect(() => {
-    document.title = `${page.title} · ${suffix}`;
+    document.title = title;
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", page.summary);
-  }, [page, suffix]);
+      ?.setAttribute("content", description);
+  }, [title, description]);
 };
 
 /**

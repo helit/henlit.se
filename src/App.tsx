@@ -29,6 +29,9 @@ const NO_BLOCKS: Block[] = [];
 /** How many past commands ctrl+p walks back through. */
 const HISTORY_LIMIT = 50;
 
+/** The tab always reads as the site, not as whichever page is open. */
+const SITE_TITLE = "henlit.se";
+
 export const App = () => {
   const path = usePath();
   const page = useMemo(() => getPage(path), [path]);
@@ -66,7 +69,7 @@ export const App = () => {
     [screenOfLink, currentIndex]
   );
 
-  useDocumentMetadata(page, MACHINE.name.toLowerCase());
+  useDocumentMetadata(SITE_TITLE, page.summary);
 
   useEffect(() => {
     setPageIndex(0);
