@@ -81,7 +81,7 @@ Error generating stack: `+a.message+`
     min-height: 100dvh;
   }
 `,wg=xt.div`
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 2;
@@ -313,10 +313,12 @@ Error generating stack: `+a.message+`
   justify-content: space-between;
   padding: 3px 10px;
 
+  /* Wrapping rather than stacking, so the "> " marker stays on the label's
+     line instead of becoming a flex item of its own above it. */
   @media ${Ue} {
-    flex-direction: column;
-    gap: 0;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0 8px;
     padding: 6px 10px;
   }
   text-decoration: none;
@@ -339,6 +341,7 @@ Error generating stack: `+a.message+`
   text-align: right;
 
   @media ${Ue} {
+    flex-basis: 100%;
     text-align: left;
   }
 `,sh=c=>c.split(/(\*\*[^*]+\*\*)/g).map((o,d)=>o.startsWith("**")&&o.endsWith("**")?I.jsx("strong",{style:{color:zt.bright,textShadow:sa(zt.bright)},children:o.slice(2,-2)},d):I.jsx(K.Fragment,{children:o},d)),vr=K.forwardRef(({blocks:c,selectedIndex:o,measuring:d},r)=>{const S=eS();let O=-1;const N=(C,H)=>{switch(C.kind){case"heading":return I.jsx(nS,{children:C.value},H);case"text":return I.jsx(uS,{children:sh(C.value)},H);case"rule":return I.jsx(iS,{},H);case"spacer":return I.jsx(cS,{},H);case"ascii":return I.jsx(fS,{"aria-hidden":"true",children:C.value},H);case"fields":return I.jsx(oS,{children:C.rows.map(B=>I.jsxs(K.Fragment,{children:[I.jsx("dt",{children:B.label}),I.jsx("dd",{children:sh(B.value)})]},B.label))},H);case"links":return I.jsx(rS,{children:C.items.map(B=>{O+=1;const x=!B.href,p=!!B.href&&!B.download;return I.jsxs(sS,{href:B.href??B.path??"/",active:O===o,onClick:x?S:void 0,download:B.download?"":void 0,target:p?"_blank":void 0,rel:p?"noreferrer":void 0,tabIndex:d?-1:void 0,"aria-hidden":d||void 0,"aria-current":!d&&O===o?"true":void 0,children:[I.jsx("span",{children:B.label}),B.note&&I.jsx(dS,{children:B.note})]},B.label)})},H)}};return I.jsx(aS,{ref:r,measuring:d,"aria-hidden":d,inert:d,children:c.map(N)})});vr.displayName="PageView";const mS=(c,o,d,r)=>{const S=[];let O=[],N=0;return c.forEach((C,H)=>{const B=o[H]??0,x=O.length===0?B:B+r;O.length>0&&N+x>d?(S.push(O),O=[C],N=B):(O.push(C),N+=x)}),O.length>0&&S.push(O),S.length>0?S:[[]]},hS=(c,o,d,r,S)=>{const[O,N]=K.useState([c]);return K.useEffect(()=>{if(!S){N([c]);return}const C=()=>{const B=o.current,x=d.current;if(!B||!x)return;const p=Array.from(x.children).map(D=>D.offsetHeight);N(mS(c,p,B.clientHeight,r))};C();const H=new ResizeObserver(C);return o.current&&H.observe(o.current),document.fonts?.ready.then(C).catch(()=>{}),()=>H.disconnect()},[c,r,o,d,S]),O},Nn=c=>({kind:"navigate",path:Ru(c)}),hc=[{names:["help","?","man"],description:"List every command this machine understands",run:()=>Nn("/help")},{names:["goto","cd","open","go"],args:"<path>",description:"Navigate to a page, e.g. goto /help",run:c=>{if(!c)return Nn("/");if(c==="..")return{kind:"back"};const o=Ru(c);return Ch(o)?Nn(o):{kind:"message",tone:"error",text:`no such page: ${o}. try 'show pages'`}}},{names:["pages","ls","dir","tree","sitemap"],description:"Show the page tree",run:()=>Nn("/sitemap")},{names:["home","main","start"],description:"Return to the splash screen",run:()=>Nn("/")},{names:["back"],description:"Step back through history",run:()=>({kind:"back"})},{names:["reboot","restart"],description:"Restart the system",run:()=>({kind:"reboot"})},{names:["cv","resume"],description:"Download my CV as a pdf",run:()=>({kind:"download",href:Nh})},{names:["email","mail"],description:"Open a new mail to Henrik",run:()=>({kind:"external",href:`mailto:${Il.email}`})},{names:["source","repo","github"],description:"The source code for this site",run:()=>({kind:"external",href:Il.github})},{names:["date","time"],description:"System clock",run:()=>({kind:"message",tone:"info",text:new Date().toLocaleString("en-GB")})},{names:["echo"],args:"<text>",description:"Repeat text back",run:c=>({kind:"message",tone:"info",text:c||" "})},{names:["exit","logout","quit"],description:"Terminate the session",run:()=>({kind:"message",tone:"error",text:"session cannot be terminated. you are already outside."})}],Ch=c=>c in ra||c==="/help"||c==="/sitemap",vS=["show","list","display","print"],yS=c=>{const o=c.trim();if(!o)return null;const d=o.split(/\s+/);d.length>1&&vS.includes(d[0].toLowerCase())&&d.shift();const r=d[0].toLowerCase(),S=d.slice(1).join(" "),O=hc.find(C=>C.names.includes(r));if(O)return O.run(S);const N=Ru(o);return Ch(N)?Nn(N):{kind:"message",tone:"error",text:`unknown command: ${r}. type 'help' for a list`}},gS=c=>{const o=c.split(/\s+/),d=o[o.length-1].toLowerCase();if(!d)return null;const S=(d.startsWith("/")?Object.keys(ra).concat("/help","/sitemap"):hc.map(N=>N.names[0])).filter(N=>N.startsWith(d));if(S.length===0)return null;const O=S.reduce((N,C)=>{let H=0;for(;H<N.length&&N[H]===C[H];)H+=1;return N.slice(0,H)});return o[o.length-1]=O,o.join(" ")},SS=()=>({title:"COMMAND INDEX",heading:"Command index",summary:"Every command this machine understands.",blocks:[{kind:"heading",value:"> help"},{kind:"text",value:"Type a command and press ENTER. TAB completes, arrow keys move the selection where a page has one, and a bare path like /sitemap works on its own."},{kind:"spacer"},{kind:"fields",rows:hc.map(c=>({label:[c.names[0],c.args].filter(Boolean).join(" "),value:c.description}))},{kind:"rule"},{kind:"text",value:`Aliases: ${hc.filter(c=>c.names.length>1).map(c=>c.names.join(", ")).join(" · ")}`}]}),bS=()=>{const c=[...Qg().filter(r=>r!=="/"),"/help","/sitemap"],o=["/"];c.forEach((r,S)=>{const O=S===c.length-1?"`--":"|--";o.push(`${O} ${r.slice(1)}`)});const d=["/",...c];return{title:"PAGE TREE",heading:"Page tree",summary:"Every page on henlit.se.",blocks:[{kind:"heading",value:"> show pages"},{kind:"ascii",value:o.join(`
