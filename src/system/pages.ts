@@ -11,7 +11,7 @@ const buildHelpPage = (): Page => ({
     {
       kind: "text",
       value:
-        "Type a command and press ENTER. Arrow keys move between links, TAB completes, and a bare path like /help works on its own.",
+        "Type a command and press ENTER. TAB completes, arrow keys move the selection where a page has one, and a bare path like /sitemap works on its own.",
     },
     { kind: "spacer" },
     {
@@ -28,20 +28,24 @@ const buildHelpPage = (): Page => ({
         .map((command) => command.names.join(", "))
         .join(" · ")}`,
     },
-    { kind: "spacer" },
-    { kind: "links", items: [{ label: "PAGE TREE", path: "/sitemap" }] },
   ],
 });
 
 /** Renders the page tree as indented ASCII, then again as selectable links. */
 const buildTreePage = (): Page => {
-  const content = listPaths().filter((path) => path !== "/");
-  const paths = [...content, "/help", "/sitemap"];
+  const branches = [
+    ...listPaths().filter((path) => path !== "/"),
+    "/help",
+    "/sitemap",
+  ];
   const lines = ["/"];
-  paths.forEach((path, index) => {
-    const tip = index === paths.length - 1 ? "`--" : "|--";
+  branches.forEach((path, index) => {
+    const tip = index === branches.length - 1 ? "`--" : "|--";
     lines.push(`${tip} ${path.slice(1)}`);
   });
+
+  // Root is listed as a row too, so the tree can get you home as well as away.
+  const paths = ["/", ...branches];
 
   return {
     title: "PAGE TREE",
