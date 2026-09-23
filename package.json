@@ -1,25 +1,22 @@
 {
   "name": "henlit.se",
   "private": true,
-  "version": "1.0.6",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run check && vite build && cp dist/index.html dist/404.html",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "check": "node scripts/check-copy.mjs && node scripts/check-contrast.mjs && node scripts/check-assets.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@react-three/drei": "^10.1.2",
-    "@react-three/fiber": "^9.1.2",
-    "@types/three": "^0.177.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "three": "^0.177.0"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
