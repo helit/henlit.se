@@ -55,6 +55,9 @@ const Ascii = styled.pre`
   overflow: hidden;
   color: ${theme.bright};
   text-shadow: ${glow(theme.bright)};
+  /* VT323 has no block glyphs, and borrowing them from a fallback font at a
+     different width pulls the columns out of line. */
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: clamp(4px, 1.4vw, 11px);
   line-height: 1.1;
 `;
